@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Generator</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8e+K4c2z5a7b5e5f5e5f5e5f5e5f5e5f5e" crossorigin="anonymous">
+    </head>
+    <body class="bg-light">
+        <div class="container mt005 text-center">
+            <h2 class="mb-4">Stable Diffusion Generator</h2>
+            <form action="/generate" method="POST">
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="prompt" placeholder="Enter your prompt here..." required>
+                </div>
+                <button type="submit" class="btn btn-primary">Generate Image</button>
+            </form>
+            {%if filename %}
+            <div class="mt-4">
+                <h4>Generated Image:</h4>
+                <img src="{{ url_for('static', filename=filename) }}" alt="Generated Image" class="img-fluid">
+            </div>
+            {% endif %}
+        </div>
+    </body>
+</html>
